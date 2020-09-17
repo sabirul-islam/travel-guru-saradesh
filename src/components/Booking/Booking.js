@@ -1,29 +1,25 @@
 import React from 'react';
 import Header from '../Header/Header';
-import background from '../Image/background.jpg';
 import '../Home/Home.css'
-// import { useContext } from 'react';
-import { CategoryContext, information } from '../../App';
+import { information } from '../../App';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
 const Booking = () => {
     const {bookingId} = useParams();
-    // const category = useContext(CategoryContext);
-    // console.log(category);
     
     const data = information.find(data=> data.id === bookingId);
     
     return (
-        <div style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${background})`}} className="background">
+        <div style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://i.ibb.co/ZfbGwc5/background.jpg)`}} className="background">
 
             <Header></Header>
-            <div className='d-md-inline-flex'>            
-           <div style={{width: '50%', textAlign: 'justify'}} className='text-light m-5'>
-            <h1>{data.name}</h1>
-            <p>{data.detail}</p>
-            </div>
-            <div>
+                <div className='d-md-inline-flex'>            
+                <div style={{width: '50%', textAlign: 'justify'}} className='text-light m-5'>
+                <h1>{data.name}</h1>
+                <p>{data.detail}</p>
+                </div>
+                <div>
 
             <Form className='ml-5'>
                 <Form.Group controlId="formBasicEmail">
@@ -46,7 +42,7 @@ const Booking = () => {
                 Start Booking
                 </Button>
                 </Link>
-                </Form>
+            </Form>
             </div>
             </div>
 

@@ -32,10 +32,9 @@ const LogIn = () => {
             setLoggedInUser(signedInUser);
             history.replace(from);
           }).catch(function(error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            var email = error.email;
-            var credential = error.credential;
+            const newUserInfo = {...user}
+            newUserInfo.error = error.message;
+            setUser(newUserInfo);
           });
     }
     
@@ -48,14 +47,9 @@ const LogIn = () => {
             setLoggedInUser(signedInUser);
             history.replace(from);
           }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
+            const newUserInfo = {...user}
+            newUserInfo.error = error.message;
+            setUser(newUserInfo);
           });    
     }
 
@@ -145,7 +139,6 @@ const LogIn = () => {
             <Button className='px-5 my-4' onClick={handleGoogleSignIn} variant='warning'>google</Button><br/>
             <Button className='px-5' onClick={handleFacebookSignIn} variant='warning'>Facebook</Button>
             
-            {/* <p className='text-info'>{loggedInUser.email}</p> */}
         </div>
     );
 };
