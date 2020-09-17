@@ -125,7 +125,7 @@ const LogIn = () => {
                 <input className='m-2' type="checkbox"></input>
                 <label> <small className='mr-4'>Remember Me</small><small className='text-warning'>Forgotten Password</small></label>
                 <input type="submit" value={newUser ? 'Sign Up' : 'Login'} className='px-5 py-1 m-2 bg-warning submitButton' variant="warning"/><br/>
-                <small className='mx-2'>Don't have an account?</small><small className='text-warning' onClick={()=>setNewUser(!newUser)}>Create an account</small>
+                <small className='mx-2'>{newUser ? 'Already have an account' : "Don't have an account"}?</small><small style={{cursor: 'pointer'}} className='text-warning' onClick={()=>setNewUser(!newUser)}>{newUser ? 'Log in' : 'Create an account'}</small>
             </form>
 
             <p className='text-danger mt-5'>{user.error}</p>
