@@ -11,11 +11,10 @@ const hotelnformation = [
 const HotelDeatail = () => {
 
     return (
-        
-        <div>
-            <Header></Header>
+        <div className='d-inline-flex'>        
+            <div style={{width: '50%'}}>
             {
-                hotelnformation.map(item=><Card style={{width: '50%'}} className="bg-dark text-white m-4">
+                hotelnformation.map(item=><Card className="bg-dark text-white m-4">
                 <Card.Img style={{height: '250px'}} src={item.img} alt="Card image" />
                 <Card.ImgOverlay>
                 <Card.Title>{item.name}</Card.Title>
@@ -24,9 +23,17 @@ const HotelDeatail = () => {
                 </Card.Text>
                 <Card.Text>Last updated 3 mins ago</Card.Text>
                 </Card.ImgOverlay>
-                </Card> )
+                </Card>
+                )
             }
+            </div>
+
+            <div>
+                <img className='mt-4' src={'https://i.ibb.co/mqq6wfB/coxsbazar.jpg'} alt=""/>
+            </div>
+
         </div>
+
     );
 };
 

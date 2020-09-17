@@ -28,7 +28,6 @@ const LogIn = () => {
         firebase.auth().signInWithPopup(googleProvider).then(function(result) {
             const {displayName, email} = result.user;
             const signedInUser = {name: displayName, email}
-            console.log(signedInUser);
             setLoggedInUser(signedInUser);
             history.replace(from);
           }).catch(function(error) {
@@ -43,7 +42,6 @@ const LogIn = () => {
         firebase.auth().signInWithPopup(facebookProvider).then(function(result) {
             const {displayName, email} = result.user;
             const signedInUser = {name: displayName, email}
-            console.log(signedInUser);
             setLoggedInUser(signedInUser);
             history.replace(from);
           }).catch(function(error) {
@@ -104,7 +102,6 @@ const LogIn = () => {
 
                 const {displayName, email} = user;
                 const signedInUser = {name: displayName, email}
-                console.log(signedInUser);
                 setLoggedInUser(signedInUser);
                 history.replace(from);
 
@@ -123,9 +120,6 @@ const LogIn = () => {
             
             <form onSubmit={handleSubmit} action="">
                 <h2 className='m-2'>Login</h2>
-
-                {/* {newUser && <input className='m-2' onBlur={handleBlur} name='email' type="email" placeholder='Username or Email'/>} */}
-
                 <input className='m-2' onBlur={handleBlur} name='email' type="email" placeholder='Username or Email' required/><br/>
                 <input className='m-2' onBlur={handleBlur} name='password' type="password" placeholder='Password' required/><br/>
                 <input className='m-2' type="checkbox"></input>
@@ -133,7 +127,8 @@ const LogIn = () => {
                 <input type="submit" value={newUser ? 'Sign Up' : 'Login'} className='px-5 py-1 m-2 bg-warning submitButton' variant="warning"/><br/>
                 <small className='mx-2'>Don't have an account?</small><small className='text-warning' onClick={()=>setNewUser(!newUser)}>Create an account</small>
             </form>
-            <p className='text-danger'>{user.error}</p>
+
+            <p className='text-danger mt-5'>{user.error}</p>
             {user.success && <p className='text-success mt-3'>User {newUser ? 'created' : 'Logged In'} Successfully.</p>}<br/>
             
             <Button className='px-5 my-4' onClick={handleGoogleSignIn} variant='warning'>google</Button><br/>
