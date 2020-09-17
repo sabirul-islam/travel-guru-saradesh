@@ -5,8 +5,7 @@ import Home from './components/Home/Home';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Booking from './components/Booking/Booking';
 import NotFound from './components/NotFound/NotFound';
@@ -54,8 +53,7 @@ function App() {
   </Router>
   </CategoryContext.Provider>  
       
-    
-  );
+      );
 }
 
 export default App;
