@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import Header from '../Header/Header';
+import Maps from '../Maps/Maps';
 
 const hotelnformation = [
     {name: "Hotel Ocean Palace", detail:'Set in Coxs Bazar, Hotel Ocean Palace has a shared lounge and a garden. Among the facilities at this property are a 24-hour front desk and room service, along with free WiFi throughout the property.', img: 'https://i.ibb.co/XJgTR0D/room2.png', id: 'HGFAK'},
@@ -11,8 +11,8 @@ const hotelnformation = [
 const HotelDeatail = () => {
 
     return (
-        <div className='d-inline-flex'>        
-            <div style={{width: '50%'}}>
+        <div className='d-inline-flex row'>        
+            <div className='col-md-6'>
             {
                 hotelnformation.map(item=><Card className="bg-dark text-white m-4">
                 <Card.Img style={{height: '250px'}} src={item.img} alt="Card image" />
@@ -28,8 +28,9 @@ const HotelDeatail = () => {
             }
             </div>
 
-            <div>
-                <img className='mt-4' src={'https://i.ibb.co/mqq6wfB/coxsbazar.jpg'} alt=""/>
+            <div className='col-md-6'>
+                <h1>See Your Location</h1>
+                <Maps></Maps>
             </div>
 
         </div>
